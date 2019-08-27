@@ -14,9 +14,11 @@ public class Program {
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		List<Funcionario> lista = new ArrayList<Funcionario>();
+		List<Funcionario> lista2 = new ArrayList<Funcionario>();
 
 		System.out.print("Informe a quantidade de funcionários: ");
 		int n = sc.nextInt();
+		
 
 		for (int i = 1; i <= n; i++) {
 			System.out.println("Dados do funcionário #" + i);
@@ -45,11 +47,17 @@ public class Program {
 
 		}
 		System.out.println();
-		System.out.println("Pagamento");
+		
 		for (Funcionario apelido : lista) {
 			// imprime o apelido do laço for da lista
-			System.out.println(apelido.getNome() + " - $ " + String.format("%.2f", apelido.pagamento()));
+			System.out.println("Nome do funcionário: "+apelido.getNome() +
+					"\n"+"quantidade de horas trabalhada: "+String.format("%d",apelido.getHoras())
+					+"\n"+"Valor por hora: "+String.format("R$%.2f",apelido.getValorPorHora())
+					//+"\n"+"Despesa adicional"+String.format("R$%.2f",apelido)
+					+"\n"+"Pagamento: "+String.format("R$%.2f", apelido.pagamento())+"\n\n");
 		}
+		System.out.println();
+					
 		sc.close();
 
 	}
